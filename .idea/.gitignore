@@ -9,3 +9,7 @@
 
 # Logs
 *.log
+/k8s.iml
+/misc.xml
+/modules.xml
+/vcs.xml
