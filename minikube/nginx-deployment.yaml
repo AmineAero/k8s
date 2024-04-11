@@ -9,7 +9,7 @@ data:
     <h1>Welcome</h1>
     </br>
     <h1>Hi! I am Deployed in Mnikube </h1>
-    </html
+    </html>
 ---
 
 apiVersion: apps/v1
