@@ -15,6 +15,10 @@ minikube node add -p aged
 ### Add another control-plane node in the cluster 'aged'
 minikube node add --control-plane -p aged
 
+## Access Minikube dashboard from outside
+### add proxy to open on a specific port 8081
+kubectl proxy --address='0.0.0.0' --disable-filter=true --port=8081
+
 ## Troubleshooting a node
 - k describe <node>
   - Resolving Lack of System Resources
