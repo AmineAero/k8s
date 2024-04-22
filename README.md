@@ -1,5 +1,8 @@
 # k8s
 
+## Doc officiel Minikube 
+https://minikube.sigs.k8s.io/docs/start/
+
 ## Add a new Cluster :
 ### Add a new Cluster with older version of k8s
 minikube start -p aged --kubernetes-version=v1.16.1
