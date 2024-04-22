@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: my-redis
+  name: my-redis
+  namespace: default
+spec:
+  containers:
+  - name: my-redis
+    image: redis05
+    env:
+      - name: USER
+        value: "username"
+
