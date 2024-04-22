@@ -2,6 +2,7 @@
 
 ## Doc officiel Minikube 
 https://minikube.sigs.k8s.io/docs/start/
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 ## Add a new Cluster :
 minikube start --cpus 4 --memory 6144
