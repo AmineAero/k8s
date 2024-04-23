@@ -12,4 +12,3 @@ spec:
     env:
       - name: USER
         value: "username"
-
