@@ -15,8 +15,8 @@ minikube start -p thirdcluster --cpus 4 --memory 8192
 
 
 ## Add a new node :
-### Add a new Worker node in the cluster 'aged'
-minikube node add -p aged
+### Add a new Worker node in the cluster 'worker01'
+minikube node add -p worker01
 
 ### Add another control-plane node in the cluster 'aged'
 minikube node add --control-plane -p aged
