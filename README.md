@@ -62,6 +62,8 @@ kubectl get pods --namespace=default
 kubectl config use-context minikube
 ou
 kubectl config use-context <your-context>
+### Show current context
+kubectl config current-context
 
 
 
