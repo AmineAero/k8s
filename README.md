@@ -36,3 +36,27 @@ kubectl proxy --address='0.0.0.0' --disable-filter=true --port=8081
     - Run the command kubectl describe pod using the name of the kube-proxy pod that failed, and check the Events section in the output.
 - minikube ssh
 
+## Add a new context user :
+### 1. Configurer les Certificats pour l'Utilisateur
+#### 1. Générer une paire de clés (privée et publique) :
+openssl genrsa -out user-name.key 2048
+
+#### 2. Créer une demande de signature de certificat (CSR) :
+openssl req -new -key user-name.key -out user-name.csr -subj "/CN=user-name"
+
+#### 3. Signer le certificat avec la CA de Kubernetes :
+openssl x509 -req -in user-name.csr -CA ~/.minikube/ca.crt -CAkey ~/.minikube/ca.key -CAcreateserial -out user-name.crt -days 500
+
+### 2. Configurer kubeconfig
+#### 1. Définir l'utilisateur dans kubeconfig :
+kubectl config set-credentials user-name --client-certificate=user-name.crt --client-key=user-name.key
+#### 2. Définir le contexte pour l'utilisateur :
+kubectl config set-context user-name-context --cluster=minikube --user=user-name
+#### 3. Utiliser le nouveau contexte :
+kubectl config use-context user-name-context
+### 3. Tester les Permissions
+#### Tester l'accès à la liste des pods dans le namespace default
+kubectl get pods --namespace=default
+
+
+
