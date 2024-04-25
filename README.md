@@ -58,5 +58,10 @@ kubectl config use-context user-name-context
 #### Tester l'accès à la liste des pods dans le namespace default
 kubectl get pods --namespace=default
 
+## Switch context
+kubectl config use-context minikube
+ou
+kubectl config use-context <your-context>
+
 
 
