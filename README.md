@@ -65,5 +65,8 @@ kubectl config use-context <your-context>
 ### Show current context
 kubectl config current-context
 
+## Start Minikube with Calico
+minikube start --network-plugin=cni --cni=calico
+
 
 
