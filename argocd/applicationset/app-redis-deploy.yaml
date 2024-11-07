@@ -14,7 +14,7 @@ spec:
               repoURL: https://github.com/AmineAero/k8s.git
               revision: HEAD
               directories:
-                - path: app-redis/overlays/*
+                - path: kustomize/app-redis/overlays/*
           # cluster generator, 'child' #2
           - clusters:
               selector:
