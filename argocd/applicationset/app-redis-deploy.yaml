@@ -1,0 +1,39 @@
+# ApplicationSet to deploy redis
+#---------------------------------------------------------
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: app-redis-deploy
+spec:
+  generators:
+    # matrix 'parent' generator
+    - matrix:
+        generators:
+          # git generator, 'child' #1
+          - git:
+              repoURL: https://github.com/AmineAero/k8s.git
+              revision: HEAD
+              directories:
+                - path: app-redis/overlays/*
+          # cluster generator, 'child' #2
+          - clusters:
+              selector:
+                matchLabels:
+                  argocd.argoproj.io/secret-type: cluster
+                  cluster: '{{path.basename}}'
+  template:
+    metadata:
+      name: 'app-redis-{{path.basename}}'
+    spec:
+      project: '{{metadata.labels.env}}'
+      source:
+        repoURL: https://github.com/AmineAero/k8s.git
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: 'https://kubernetes.default.svc' #{{server}}'
+        namespace: '{{path.basename}}'
+
+
+
+        
