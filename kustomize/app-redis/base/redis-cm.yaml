@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  APP_MODE: CHANEL
+  PREZ_TECH_SUBJECT: GITOPS_AND_ARGOCD
+kind: ConfigMap
+metadata:
+  name: redis-cm
