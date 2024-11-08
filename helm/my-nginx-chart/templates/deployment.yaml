@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "my-nginx-chart.fullname" . }}
+  name: my-nginx-chart
   labels:
     {{- include "my-nginx-chart.labels" . | nindent 4 }}
 spec:
